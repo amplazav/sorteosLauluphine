@@ -1,0 +1,121 @@
+:root{
+  --bg-light: #fff0f6;
+  --bg-accent: linear-gradient(135deg,#ffe7f3,#ffd1ea);
+  --soft-pink: #ffd9ec;
+  --pastel-pink: #ffb9de;
+  --neon-pink: #ff66b2;
+  --muted: #6b4865;
+  --card-border: rgba(255,255,255,0.6);
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Poppins, Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color:#3a1630;
+  /* background image with softer overlay so it shows through */
+  background: url('assets/fondo.jpg') center/cover fixed no-repeat;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1100px;
+  margin:28px auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns: 380px 1fr;
+  gap:20px;
+}
+
+.brand{
+  border-radius:18px;
+  background: linear-gradient(180deg, rgba(255,250,253,0.26), rgba(255,245,250,0.20));
+  padding:16px;
+  box-shadow: 0 6px 12px rgba(255,102,178,0.06);
+  border:1px solid rgba(255,255,255,0.26);
+  position:relative;
+  backdrop-filter: blur(2px);
+}
+
+.logo{display:flex;gap:14px;align-items:center}
+.avatar{width:86px;height:86px;border-radius:22px;background:linear-gradient(135deg,var(--pastel-pink),var(--neon-pink));display:flex;align-items:center;justify-content:center;color:white;font-size:34px;box-shadow:0 8px 22px rgba(255,102,178,0.12)}
+.avatar svg{width:46px;height:46px}
+.title{line-height:1}
+.title h1{margin:0;font-size:22px;letter-spacing:0.6px;color:#8a2b54;font-weight:700}
+.title p{margin:6px 0 0 0;font-size:13px;color:#7a3355}
+
+.drop-area{margin-top:18px;border-radius:14px;padding:18px;background:rgba(255,255,255,0.92);border:1px dashed rgba(255,102,178,0.45);display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;min-height:160px;text-align:center;transition:all .16s ease}
+.drop-area.drag{transform:translateY(-4px);box-shadow:0 14px 40px rgba(255,102,178,0.08);}
+.drop-area .hint{color:#8a2b54;font-weight:700}
+.drop-area .sub{color:#7a3355;font-size:13px}
+
+.file-cta{display:flex;gap:8px;align-items:center}
+.btn{background:linear-gradient(180deg,var(--neon-pink), #ff7bbd);color:white;border:none;padding:10px 14px;border-radius:14px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(255,102,178,0.18);transition:transform .12s ease, box-shadow .12s ease}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:transparent;border:1px solid rgba(138,43,84,0.06);color:#8a2b54;font-weight:700;box-shadow:none}
+
+.meta{margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.count{font-size:18px;color:#8a2b54;font-weight:800}
+.small{font-size:12px;color:#7a3355}
+
+.stage{border-radius:20px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,240,246,0.62));border:1px solid rgba(255,204,229,0.6);min-height:360px; position:relative; overflow:hidden}
+
+.float-icon{position:absolute;opacity:0.08;filter:drop-shadow(0 6px 20px rgba(255,102,178,0.06));}
+.icon-1{left:-10px;top:6px;width:120px}
+.icon-2{right:-12px;bottom:6px;width:140px}
+
+.display{min-height:340px;border-radius:14px;background:rgba(255,255,255,0.26);border:1px solid rgba(255,204,229,0.2);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:22px;position:relative}
+.center-name{font-size:36px;font-weight:800;color:#a72d5a;letter-spacing:0.6px;text-align:center;text-shadow:0 6px 18px rgba(255,182,215,0.12);transition:transform .18s ease}
+.subline{font-size:13px;color:#7a3355;opacity:0.95;margin-top:8px}
+
+.spinner{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:nowrap;height:120px;overflow:hidden;padding:6px}
+.chip{background:linear-gradient(180deg,rgba(255,255,255,0.75),rgba(255,238,248,0.8));border-radius:999px;padding:10px 14px;color:#7a3355;border:1px solid rgba(255,204,229,0.28);font-weight:700;font-size:13px;white-space:nowrap;transform:translateZ(0)}
+
+.matrix{font-family:monospace;font-weight:800;font-size:20px;color:#ff66b2;letter-spacing:0.6px;text-shadow:0 2px 12px rgba(255,182,215,0.08)}
+
+.actions{display:flex;gap:12px;align-items:center;margin-top:16px}
+.btn.big{padding:14px 18px;font-size:16px;border-radius:14px}
+
+.overlay{position:fixed;inset:0;background:linear-gradient(0deg, rgba(255,240,246,0.95), rgba(255,240,246,0.95));display:none;align-items:center;justify-content:center;z-index:1200;flex-direction:column}
+.overlay.show{display:flex}
+.winner-card{background:linear-gradient(135deg,#fff6fb,#fff0f6);border-radius:20px;padding:36px 40px;text-align:center;max-width:820px;border:1px solid rgba(255,200,230,0.6);box-shadow:0 40px 120px rgba(255,182,215,0.12)}
+.winner-name{font-size:56px;color:#ff2aa3;font-weight:900;text-shadow: 0 8px 40px rgba(255,160,210,0.12);margin:6px 0}
+.winner-msg{color:#7a3355;font-size:18px;margin-top:6px}
+
+.confetti-piece{position:fixed;pointer-events:none;z-index:1400;width:10px;height:14px;border-radius:6px;opacity:0.95;transform:translate3d(0,0,0);will-change:transform,opacity}
+
+/* Emote layer */
+.emote-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.emote{position:absolute;font-size:28px;opacity:0;transform:translate3d(0,0,0);transition:transform 900ms ease-out, opacity 900ms linear}
+.emote.heart{font-size:30px}
+.prize-input{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,192,220,0.6);font-size:14px}
+
+/* Heart celebration pieces */
+.heart-piece{position:absolute;pointer-events:none;z-index:1400;width:28px;height:28px;opacity:0;transform:translate3d(0,0,0) scale(1);transition:transform 1200ms cubic-bezier(.2,.8,.2,1), opacity 1200ms linear}
+.heart-piece svg{width:100%;height:100%}
+
+/* sound toggle style */
+#sound-toggle{border-radius:12px;padding:8px 12px}
+
+/* Mobile tweaks */
+@media (max-width:480px){
+  .center-name{font-size:22px}
+  .chip{padding:8px 10px;font-size:12px}
+  .avatar{width:72px;height:72px}
+}
+
+/* Initial UI hidden state so only background is visible */
+.ui-hidden .container{opacity:0;pointer-events:none;transform:translateY(18px) scale(0.995)}
+.container{transition:opacity 700ms cubic-bezier(.2,.9,.2,1), transform 700ms cubic-bezier(.2,.9,.2,1); will-change:opacity,transform}
+
+/* Start screen button (visible over background before revealing UI) */
+/* start-screen styles removed (reverted) */
+
+@keyframes flash-pulse{0%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(255,66,142,0))}50%{transform:scale(1.03);filter:drop-shadow(0 10px 30px rgba(255,121,180,0.12))}100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(255,66,142,0))}}
+.pulse{animation:flash-pulse .9s ease-in-out infinite}
+
+@media (max-width:920px){.container{grid-template-columns:1fr; padding:16px}.brand{order:2}.stage{order:1}.display{height:220px}.winner-name{font-size:40px}.center-name{font-size:26px}}
